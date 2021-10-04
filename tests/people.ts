@@ -15,7 +15,7 @@ import { Creditsafe } from '../src/index'
     peopleId: 'US-S340823369',
   })
   if (one.success) {
-    console.log(`Success! We found the director Donna Richards`)
+    console.log('Success! We found the director Donna Richards')
   } else {
     console.log('Error! I was not able to find Donna Richards, and I should.')
     console.log(one)
