@@ -17,6 +17,10 @@
     "indent": ["error", 2, { "SwitchCase": 1 }],
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single", { "avoidEscape": true }],
-    "semi": ["error", "never"]
+    "semi": ["error", "never"],
+    "no-unused-vars": ["error", {
+        "argsIgnorePattern": "^_|[Ii]gnore$",
+        "varsIgnorePattern": "^_|[Ii]gnore$"
+    }]
   }
 }

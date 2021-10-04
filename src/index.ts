@@ -80,8 +80,11 @@ export class Creditsafe {
     // build up the complete url from the provided 'uri' and the 'host'
     let url = new URL(PROTOCOL+'://'+path.join(this.host, uri))
     if (query) {
-      Object.keys(query).forEach(k =>
-        url.searchParams.append(k, query[k].toString()))
+      Object.keys(query).forEach(k => {
+        if (something(query[k])) {
+          url.searchParams.append(k, query[k].toString())
+        }
+      })
     }
     const isForm = isFormData(body)
     // make the appropriate headers
@@ -127,6 +130,14 @@ export class Creditsafe {
     // this will mean we retried, and still failed
     return { response }
   }
+}
+
+/*
+ * Simple function used to weed out undefined and null query params before
+ * trying to place them on the call.
+ */
+function something(arg: any) {
+  return arg || arg === false || arg === 0 || arg === ''
 }
 
 /*
